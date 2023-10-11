@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     }
 
     void Update(){
+        isGrounded= RayCastGrounded();
         float xr = Input.GetAxis("Mouse X") * mouseXSensitivity * Time.deltaTime;
         float yr = Input.GetAxis("Mouse Y") * mouseXSensitivity * Time.deltaTime;
         
@@ -28,10 +29,11 @@ public class Character : MonoBehaviour
         transform.Rotate(0, xr, 0);
         camera.transform.localRotation = Quaternion.Euler(rotation, 0, 0);
 
-        Move();
-        isGrounded= RayCastGrounded();
-        Jumping();
+        if (Input.GetKeyDown (KeyCode.Space) && isGrounded) {
+			rb.AddRelativeForce (Vector3.up * jumpForce);
 
+		}
+        Move();
     }
 
     void Move(){
