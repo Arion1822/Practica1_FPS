@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Items\AmmoItem.cs" />
      <Compile Include="Assets\Terrain\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
      <Compile Include="Assets\Scripts\ActivateAreaShotting.cs" />
+     <Compile Include="Assets\Scripts\DartBoard.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Materials" />
