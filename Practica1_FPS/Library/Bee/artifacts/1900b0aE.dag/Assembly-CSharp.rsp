@@ -352,13 +352,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Easy FPS/Scripts/BulletScript.cs"
-"Assets/Easy FPS/Scripts/DestroyAfterTimeParticle.cs"
-"Assets/Easy FPS/Scripts/GunInventory.cs"
-"Assets/Easy FPS/Scripts/GunScript.cs"
-"Assets/Easy FPS/Scripts/MouseLookScript.cs"
-"Assets/Easy FPS/Scripts/PlayerMovementScript.cs"
 "Assets/MobilityArts/SciFiHandGun/Scripts/OrbitAroundTarget.cs"
+"Assets/Scripts/ActivateAreaShotting.cs"
+"Assets/Scripts/AreaShooting.cs"
+"Assets/Scripts/ChangeLevel.cs"
 "Assets/Scripts/Character.cs"
 "Assets/Scripts/Drone.cs"
 "Assets/Scripts/GameManager.cs"
@@ -367,6 +364,7 @@
 "Assets/Scripts/Items/Item.cs"
 "Assets/Scripts/Items/LifeItem.cs"
 "Assets/Scripts/Items/ShieldItem.cs"
+"Assets/Terrain/Rabbits/Demo/Scripts/AnimatorParamatersChange.cs"
 -langversion:9.0
 
 /deterministic

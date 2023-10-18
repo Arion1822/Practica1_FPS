@@ -32,11 +32,15 @@ public class Character : MonoBehaviour
     }
 
     void Update(){
+<<<<<<< HEAD
         Rotate();
         Move();
     }
 
     void Rotate(){
+=======
+        isGrounded= RayCastGrounded();
+>>>>>>> a546c3d131e830adc2dc3133afa0dbc6314813e7
         float xr = Input.GetAxis("Mouse X") * mouseXSensitivity * Time.deltaTime;
         float yr = Input.GetAxis("Mouse Y") * mouseYSensitivity * Time.deltaTime;
         
@@ -45,6 +49,15 @@ public class Character : MonoBehaviour
 
         transform.Rotate(0, xr, 0);
         camera.transform.localRotation = Quaternion.Euler(rotation, 0, 0);
+<<<<<<< HEAD
+=======
+
+        if (Input.GetKeyDown (KeyCode.Space) && isGrounded) {
+			rb.AddRelativeForce (Vector3.up * jumpForce);
+
+		}
+        Move();
+>>>>>>> a546c3d131e830adc2dc3133afa0dbc6314813e7
     }
 
     void Move(){
@@ -60,6 +73,7 @@ public class Character : MonoBehaviour
         rb.MovePosition(rb.position + finalMovement);
     }
 
+<<<<<<< HEAD
     public void RefillAmmo()
     {
         gun.Refill();
@@ -107,3 +121,41 @@ public class Character : MonoBehaviour
         currentShield = maxShield;
     }
 }
+=======
+/*
+ * Rotating current weapon from here.
+ * Checkig if we have a weapon, if we do, if its a gun it iwll fetch the gun and rotate it accordingly,
+ * same goes for the sword.
+ * Incase we dont have a weapon or gun or it didnt find it, it will write into the console that it cant find a weapon.
+ */
+
+
+public float jumpForce;
+void Jumping(){
+		if (Input.GetKeyDown (KeyCode.Space) && isGrounded) {
+			rb.AddRelativeForce (Vector3.up * jumpForce);
+
+		}
+	}
+
+
+
+    private bool RayCastGrounded(){
+		RaycastHit groundedInfo;
+		if(Physics.Raycast(transform.position, transform.up *-1f, out groundedInfo, 1)){
+			Debug.DrawRay (transform.position, transform.up * -1f, Color.red, 0.0f);
+			if(groundedInfo.transform != null){
+				
+				return true;
+			}
+			else{
+				
+				return false;
+			}
+		}
+
+		return false;
+	}
+
+}
+>>>>>>> a546c3d131e830adc2dc3133afa0dbc6314813e7
