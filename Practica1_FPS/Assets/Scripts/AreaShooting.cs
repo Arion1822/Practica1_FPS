@@ -10,6 +10,7 @@ public class AreaShooting : MonoBehaviour
     public GameObject diana4;
     public GameObject diana5;
     public GameObject diana6;
+   
 
     private float points;
 
@@ -26,7 +27,7 @@ public class AreaShooting : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(false);
-    
+        
 
 
     }
@@ -35,9 +36,9 @@ public class AreaShooting : MonoBehaviour
     void Update()
     {
     
-        //shootingAreaMovementRightLeft();
+        shootingAreaMovementRightLeft();
         shootingAreaMovementUpDown();
-       //shootingAreaMovementCircle();
+    
         
     
     }
@@ -53,7 +54,7 @@ private void shootingAreaMovementUpDown()
     {
         currentPosition1.y += movementSpeed * Time.deltaTime;
         currentPosition2.y += movementSpeed * Time.deltaTime;
-        if (currentPosition1.y >= yMax&& currentPosition2.y >= yMax )
+        if (currentPosition1.y >= yMax && currentPosition2.y >= yMax )
         {
             currentPosition1.y = yMax;
             currentPosition2.y = yMax;
@@ -106,41 +107,7 @@ private void shootingAreaMovementRightLeft()
         }
     }
 
-
-    diana4.transform.position= currentPosition3;
+    diana4.transform.position = new Vector3(currentPosition3.x, diana4.transform.position.y, diana4.transform.position.z);
 }
 
-private void shootingAreaMovementCircle()
-{
-    Vector3 currentPosition4 = diana5.transform.position;
-
-    if (movingRigthLeft)
-    {
-    
-        currentPosition4.x += movementSpeed * Time.deltaTime;
-        currentPosition4.y += movementSpeed * Time.deltaTime;
-        currentPosition4.z += movementSpeed * Time.deltaTime;
-       
-        if (currentPosition4.x >= xMax)
-        {
-            currentPosition4.x = xMax;
-            movingRigthLeft = false;
-        }
-    }
-    else
-    {
-       
-        currentPosition4.x -= movementSpeed * Time.deltaTime;
-        currentPosition4.y -= movementSpeed * Time.deltaTime;
-        currentPosition4.z -= movementSpeed * Time.deltaTime;
-        if (currentPosition4.x <= xMin)
-        {
-            currentPosition4.x = xMin;
-            movingRigthLeft = true;
-        }
-    }
-
-
-    diana5.transform.position= currentPosition4;
-}
 }

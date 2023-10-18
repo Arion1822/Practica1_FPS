@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DartBoard : MonoBehaviour
 {
-    private int scoreOnDestroy = 10;
+    public int scoreOnDestroy;
 
 
     public void ReceiveDamage()
     {
         GameManager.Instance.AddScore(scoreOnDestroy);
-        Destroy(gameObject);
+        //Destroy(gameObject.transform.parent.gameObject);
     }
 }
