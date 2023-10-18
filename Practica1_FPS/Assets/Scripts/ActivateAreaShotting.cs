@@ -3,8 +3,17 @@ using UnityEngine;
 
 public class ActivateAreaShotting : MonoBehaviour {
 	public GameObject area;
-	void OnTriggerEnter(Collider other) {
-        area.SetActive(true);
+
+
+    void  Start(){
+
+    } 
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.G)){
+            area.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
+	
 
 }
