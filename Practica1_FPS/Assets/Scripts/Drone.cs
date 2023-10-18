@@ -59,7 +59,7 @@ public class Drone : MonoBehaviour
                 // Drone is floating in the air without movement.
                 break;
             case DroneState.Patrol:
-                transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
 
                 // Drone is moving in a predefined loop.
                 break;
