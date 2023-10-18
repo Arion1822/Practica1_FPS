@@ -357,6 +357,7 @@
 "Assets/Scripts/AreaShooting.cs"
 "Assets/Scripts/ChangeLevel.cs"
 "Assets/Scripts/Character.cs"
+"Assets/Scripts/DartBoard.cs"
 "Assets/Scripts/Drone.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Gun.cs"

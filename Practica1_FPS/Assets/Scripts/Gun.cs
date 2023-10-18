@@ -33,6 +33,35 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        // Define the maximum shooting distance
+        float maxDistance = 100f;
+
+        // Create a ray from the camera through the center of the screen
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+        // Declare a RaycastHit variable to store information about the hit object
+        RaycastHit hit;
+
+        // Perform the raycast and check if it hits an object within the maxDistance
+        if (Physics.Raycast(ray, out hit, maxDistance))
+        {
+            /*// Check if the hit object has a Drone component
+            Drone drone = hit.collider.GetComponent<Drone>();
+            if (drone != null)
+            {
+                // Apply damage to the drone
+                drone.ReceiveDamage(damageAmount);
+            }*/
+
+            // Check if the hit object has a DartBoard component
+            DartBoard dartBoard = hit.collider.GetComponent<DartBoard>();
+            if (dartBoard != null)
+            {
+                // Destroy the DartBoard
+                dartBoard.ReceiveDamage();
+            }
+        }
+        
         currentMagazineAmmo--;
     }
 
