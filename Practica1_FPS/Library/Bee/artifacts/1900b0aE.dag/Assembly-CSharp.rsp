@@ -358,8 +358,15 @@
 "Assets/Easy FPS/Scripts/GunScript.cs"
 "Assets/Easy FPS/Scripts/MouseLookScript.cs"
 "Assets/Easy FPS/Scripts/PlayerMovementScript.cs"
+"Assets/MobilityArts/SciFiHandGun/Scripts/OrbitAroundTarget.cs"
 "Assets/Scripts/Character.cs"
+"Assets/Scripts/Drone.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/Gun.cs"
+"Assets/Scripts/Items/AmmoItem.cs"
+"Assets/Scripts/Items/Item.cs"
+"Assets/Scripts/Items/LifeItem.cs"
+"Assets/Scripts/Items/ShieldItem.cs"
 -langversion:9.0
 
 /deterministic
