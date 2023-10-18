@@ -56,34 +56,13 @@ public class Character : MonoBehaviour
         rb.MovePosition(rb.position + finalMovement);
     }
 
-
-    private Vector2 velocityGunFollow;
-    private float gunWeightX,gunWeightY;
-    [Tooltip("Current weapon that player carries.")]
-
-    private GameObject weapon;
-    private GunScript gun;
 /*
  * Rotating current weapon from here.
  * Checkig if we have a weapon, if we do, if its a gun it iwll fetch the gun and rotate it accordingly,
  * same goes for the sword.
  * Incase we dont have a weapon or gun or it didnt find it, it will write into the console that it cant find a weapon.
  */
-void WeaponRotation(){
-	if(!weapon){
-		weapon = GameObject.FindGameObjectWithTag("Weapon");
-		if(weapon){
-			if(weapon.GetComponent<GunScript>()){
-				try{
-					gun = GameObject.FindGameObjectWithTag("Weapon").GetComponent<GunScript>();
-				}catch(System.Exception ex){
-					print("gun not found->"+ex.StackTrace.ToString());
-				}
-			}
-		}
-	}
 
-}
 
 public float jumpForce;
 void Jumping(){
