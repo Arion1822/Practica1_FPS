@@ -6,9 +6,8 @@ public class ActivateAreaShotting : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-     if(Input.GetKeyDown(KeyCode.G)){
-            area.SetActive(true);
-            gameObject.SetActive(false);
+		if(Input.GetKeyDown(KeyCode.G)){
+            GameManager.Instance.StartGalleryGame();
         }
     }
 	

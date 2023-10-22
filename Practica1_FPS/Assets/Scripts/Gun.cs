@@ -54,11 +54,17 @@ public class Gun : MonoBehaviour
             }*/
 
             // Check if the hit object has a DartBoard component
-            DartBoard dartBoard = hit.collider.GetComponent<DartBoard>();
-            if (dartBoard != null)
+            DartBoardPart dartBoardPart = hit.collider.GetComponent<DartBoardPart>();
+            if (dartBoardPart != null)
             {
                 // Destroy the DartBoard
-                dartBoard.ReceiveDamage();
+                dartBoardPart.ReceiveDamage();
+            }
+
+            DronePart dronePart = hit.collider.GetComponent<DronePart>();
+            if (dronePart != null)
+            {
+                dronePart.DamageDrone();
             }
         }
         
@@ -76,7 +82,7 @@ public class Gun : MonoBehaviour
 
     void DisplayHUD()
     {
-        currentAmmoText.SetText(currentMagazineAmmo+"/"+currentTotalAmmo);
+        GameManager.Instance.UpdateAmmoText(currentMagazineAmmo, currentTotalAmmo);
     }
 
     public void Refill()

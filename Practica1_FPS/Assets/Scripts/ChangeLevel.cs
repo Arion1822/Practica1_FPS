@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeLevel : MonoBehaviour
 {
-    
-void OnTriggerEnter(Collider other) {
-        SceneManager.LoadScene(1);
+    void OnTriggerEnter(Collider other) {
+        GameManager.Instance.GoToFollowingScene();
     }
             
 }    

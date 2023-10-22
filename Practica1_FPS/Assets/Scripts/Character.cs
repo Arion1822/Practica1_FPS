@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
 
     private float rotation;
     private bool isGrounded;
+    private bool isDead;
 
     private Gun gun;
     
@@ -31,9 +32,13 @@ public class Character : MonoBehaviour
         currentShield = maxShield;
     }
 
-    void Update(){
-        Rotate();
-        Move();
+    void Update()
+    {
+        if (!isDead)
+        {
+            Rotate();
+            Move();   
+        }
     }
 
     void Rotate(){
@@ -84,7 +89,9 @@ public class Character : MonoBehaviour
         else
         {
             currentLife = Mathf.Max(currentLife - damage, 0);
+            Die();
         }
+        UpdateLifeAndShield();
     }
 
     public bool HasFullLife()
@@ -95,6 +102,7 @@ public class Character : MonoBehaviour
     public void RefillLife()
     {
         currentLife = maxLife;
+        UpdateLifeAndShield();
     }
     
     public bool HasFullShield()
@@ -105,5 +113,17 @@ public class Character : MonoBehaviour
     public void RefillShield()
     {
         currentShield = maxShield;
+        UpdateLifeAndShield();
+    }
+
+    void UpdateLifeAndShield()
+    {
+        GameManager.Instance.UpdateLifeAndShieldText(currentLife, currentShield);
+    }
+
+    public void Die()
+    { 
+        isDead = true;
+        GameManager.Instance.PlayerDied();
     }
 }
