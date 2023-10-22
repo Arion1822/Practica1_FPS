@@ -45,23 +45,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MobilityArts\SciFiHandGun\Scripts\OrbitAroundTarget.cs" />
-     <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Items\LifeItem.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Scripts\ChangeLevel.cs" />
      <Compile Include="Assets\Scripts\Drone\DronePart.cs" />
-     <Compile Include="Assets\Scripts\AreaShooting.cs" />
      <Compile Include="Assets\Scripts\Items\ShieldItem.cs" />
-     <Compile Include="Assets\Scripts\DartBoardPart.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\KillDoor.cs" />
+     <Compile Include="Assets\Scripts\Shooting Area\DartBoardPart.cs" />
      <Compile Include="Assets\Scripts\Drone\Drone.cs" />
      <Compile Include="Assets\Scripts\Items\AmmoItem.cs" />
-     <Compile Include="Assets\Scripts\LavaPool.cs" />
+     <Compile Include="Assets\Scripts\KillZones\LavaPool.cs" />
+     <Compile Include="Assets\Scripts\Shooting Area\ActivateAreaShotting.cs" />
      <Compile Include="Assets\Terrain\Rabbits\Demo\Scripts\AnimatorParamatersChange.cs" />
-     <Compile Include="Assets\Scripts\ActivateAreaShotting.cs" />
+     <Compile Include="Assets\Scripts\Character\Gun.cs" />
+     <Compile Include="Assets\Scripts\Shooting Area\AreaShooting.cs" />
+     <Compile Include="Assets\Scripts\KillZones\KillDoor.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Materials" />
@@ -71,7 +70,6 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\Terrain\Level2Terrain\3D Free Modular Kit\_Meshes\Materials" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <Folder Include="Assets\FPS\MuzzelFlash\MuzzlePrefabs" />
      <Folder Include="Assets\Terrain\Rabbits\Demo\Scenes" />
      <Folder Include="Assets\TextMesh Pro\Sprites" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Art\Animations" />
@@ -92,11 +90,9 @@
      <Folder Include="Assets\MASH Virtual\Sci Fi Doors\Prefab" />
      <Folder Include="Assets\Terrain\Rabbits\Texture" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
-     <Folder Include="Assets\MobilityArts\SciFiHandGun\Scripts" />
      <Folder Include="Assets\Items\Models\Bottles" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <Folder Include="Assets\Terrain\_TerrainAutoUpgrade" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures\main character" />
      <Folder Include="Assets\Gun\_prefabs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <Folder Include="Assets\TextMesh Pro\Resources" />
@@ -109,39 +105,33 @@
      <Folder Include="Assets\Terrain\Rabbits\Model" />
      <Folder Include="Assets\TextMesh Pro" />
      <Folder Include="Assets\Art" />
-     <Folder Include="Assets\MASH Virtual\Demo\Sci Fi Doors Demo" />
      <Folder Include="Assets\Materials\bricks-mortar-unity" />
      <Folder Include="Assets\Gun\_materials\GunTwo" />
      <Folder Include="Assets\Terrain\Rabbits\Demo" />
      <Folder Include="Assets\Items\Models" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures\ironSight_addon" />
-     <Folder Include="Assets\FPS\MuzzelFlash\Textures" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs\portal" />
      <Folder Include="Assets\Terrain\Level2Terrain" />
      <Folder Include="Assets\Items\Textures" />
-     <Folder Include="Assets\Models" />
+     <Folder Include="Assets\FPS\Model Drone" />
      <Folder Include="Assets\FPS" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs\player" />
+     <Folder Include="Assets\Scripts\Shooting Area" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <Folder Include="Assets\FPS\Sounds" />
-     <Folder Include="Assets\FPS\MuzzelFlash" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <Folder Include="Assets\FPS\Prefabs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <Folder Include="Assets\MASH Virtual\Demo" />
      <Folder Include="Assets\Items\Materials" />
      <Folder Include="Assets\Terrain\Rabbits\Materials" />
-     <Folder Include="Assets\FPS\Sounds\playerSound" />
      <Folder Include="Assets\MASH Virtual\Sci Fi Doors\Material" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
      <Folder Include="Assets\Rock Package\Materials" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <Folder Include="Assets\Models\Demo Scene" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs\platforms" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs\platform" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Art\Textures" />
+     <Folder Include="Assets\Scripts\KillZones" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs" />
      <Folder Include="Assets\Terrain\Level2Terrain\3D Free Modular Kit" />
      <Folder Include="Assets\FPS\Images\Materials" />
@@ -157,41 +147,36 @@
      <Folder Include="Assets\TextMesh Pro\Fonts" />
      <Folder Include="Assets\Terrain\Rabbits\Demo\Prefabs" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Art" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures\main character\Textures" />
      <Folder Include="Assets\Terrain\Level2Terrain\3D Free Modular Kit\_Meshes" />
      <Folder Include="Assets\Terrain\Meshes" />
      <Folder Include="Assets\Items" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <Folder Include="Assets\Art\Animations" />
-     <Folder Include="Assets\Models\Drone\Materials" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures\ironSight_addon\Materials" />
+     <Folder Include="Assets\FPS\Model Drone\Drone\Materials" />
      <Folder Include="Assets\MASH Virtual\Sci Fi Doors\Texture" />
      <Folder Include="Assets\Gun" />
      <Folder Include="Assets\Terrain\Rabbits\Demo\Scripts" />
      <Folder Include="Assets\Terrain\Level2Terrain\3D Free Modular Kit\Test_Map" />
      <Folder Include="Assets\Terrain\Meshes\Prefabs" />
+     <Folder Include="Assets\Scripts\Character" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets\MASH Virtual\Sci Fi Doors\Mesh" />
      <Folder Include="Assets\Terrain\Rabbits\Animations" />
      <Folder Include="Assets\Art\Materials" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Art\Meshes" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures" />
      <Folder Include="Assets\Terrain" />
      <Folder Include="Assets\Terrain\Materials" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets\Rock Package" />
-     <Folder Include="Assets\Models\Drone" />
+     <Folder Include="Assets\FPS\Model Drone\Drone" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <Folder Include="Assets\Terrain\Scene Teleportation Kit\Prefabs\ground" />
-     <Folder Include="Assets\FPS\MuzzelFlash\Materials" />
      <Folder Include="Assets\Terrain\Rabbits\Demo\Animator" />
      <Folder Include="Assets\MASH Virtual\Sci Fi Doors\Post Processing" />
-     <Folder Include="Assets\FPS\Model_Animations_Textures\main character\Materials" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <Folder Include="Assets\Rock Package\Prefabs" />
-     <Folder Include="Assets\Rock Package\Scene" />
      <Folder Include="Assets\Scripts\Items" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
      <Folder Include="Assets\Terrain\Textures" />
@@ -837,17 +822,20 @@
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Postprocessing.Runtime">
+     <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Postprocessing.Runtime">
-     <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Postprocessing.Editor">
+     <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -857,9 +845,6 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Postprocessing.Editor">
-     <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>D:\Unity Projects\Practica1_FPS\Practica1_FPS\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>

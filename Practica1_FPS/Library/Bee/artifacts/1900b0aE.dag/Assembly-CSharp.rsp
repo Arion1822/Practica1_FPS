@@ -360,7 +360,6 @@
 "Assets/Scripts/Character/Gun.cs"
 "Assets/Scripts/Drone/Drone.cs"
 "Assets/Scripts/Drone/DronePart.cs"
-"Assets/Scripts/Drone/DronePropeller.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Items/AmmoItem.cs"
 "Assets/Scripts/Items/Item.cs"

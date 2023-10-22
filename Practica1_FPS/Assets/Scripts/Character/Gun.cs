@@ -7,25 +7,16 @@ public class Gun : MonoBehaviour
 {
     public int maxMagazineAmmo = 10;
     public int maxTotalAmmo = 50;
-<<<<<<< Updated upstream:Practica1_FPS/Assets/Scripts/Character/Gun.cs
     public int currentTotalAmmo; // Total ammo the player has
     public int currentMagazineAmmo; // Current ammo in the magazine
     public GameObject decalPrefab;
-
-=======
-    public int currentTotalAmmo;
-    public int currentMagazineAmmo;
     public float maxDistance = 100f;
->>>>>>> Stashed changes:Practica1_FPS/Assets/Scripts/Gun.cs
 
     public TMP_Text currentAmmoText;
     void Start()
     {
         currentMagazineAmmo = maxMagazineAmmo;
         currentTotalAmmo = maxTotalAmmo;
-
-        GameObject[] dd;
-        dd.Length;
     }
 
     void Update()
@@ -46,36 +37,28 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             DartBoardPart dartBoardPart = hit.collider.GetComponent<DartBoardPart>();
             if (dartBoardPart != null)
             {
-                // Destroy the DartBoard
                 dartBoardPart.ReceiveDamage();
+                return;
             }
 
             DronePart dronePart = hit.collider.GetComponent<DronePart>();
             if (dronePart != null)
             {
                 dronePart.DamageDrone();
-                
-                Li
+                return;
             }
-<<<<<<< Updated upstream:Practica1_FPS/Assets/Scripts/Character/Gun.cs
-
-            else{
-                CreateDecal(hit.point, hit.normal);
-            }
-=======
             
-            //create a decal in hit 
->>>>>>> Stashed changes:Practica1_FPS/Assets/Scripts/Gun.cs
+            CreateDecal(hit.point, hit.normal);
+
+            currentMagazineAmmo--;
         }
-        
-        currentMagazineAmmo--;
     }
 
     void Reload()
