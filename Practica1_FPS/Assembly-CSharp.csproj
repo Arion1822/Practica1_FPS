@@ -57,7 +57,6 @@
      <Compile Include="Assets\Scripts\DartBoardPart.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\KillDoor.cs" />
-     <Compile Include="Assets\Scripts\Drone\DronePropeller.cs" />
      <Compile Include="Assets\Scripts\Drone\Drone.cs" />
      <Compile Include="Assets\Scripts\Items\AmmoItem.cs" />
      <Compile Include="Assets\Scripts\LavaPool.cs" />

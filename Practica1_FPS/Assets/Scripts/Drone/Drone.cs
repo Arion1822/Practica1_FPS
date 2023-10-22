@@ -9,15 +9,11 @@ public class Drone : MonoBehaviour
     public int maxLife = 100;
     public int currentLife;
     
-    
     public float speed = 5f;
 
     public Character character;
-    public float distance;
     
-    private Transform[] patrolPoints; // Array to store patrol points
-
-    private int currentTargetIndex = 0;
+    private Transform[] patrolPoints;
     
     public float detectionAngle = 45f;
     public float detectionDistance = 10f;
@@ -34,8 +30,6 @@ public class Drone : MonoBehaviour
     public Image life;
     public GameObject lifeBarPosition;
     
-    //Borrar
-    public float dis;
     
     public enum DroneState
     {
@@ -77,8 +71,6 @@ public class Drone : MonoBehaviour
         float angleToPlayer = Vector3.Angle(transform.forward, character.transform.position - transform.position);
         Vector3 directionToPlayer = (character.transform.position - transform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-
-        dis = distanceToPlayer; 
         
         DrawLifeBar();  
         
@@ -110,12 +102,10 @@ public class Drone : MonoBehaviour
                 Vector3 newPosition = new Vector3(transform.forward.x, 0, transform.forward.z) * speed * Time.deltaTime;
                 transform.position += newPosition;
 
-                // If the distance is greater than a certain distance, transition to Patrol state
                 if (distanceToPlayer > maxChaseDistance)
                 {
                     currentState = DroneState.Patrol;
                 }
-                // If the distance is smaller than a certain distance, transition to Attack state
                 else if (distanceToPlayer < attackDistance)
                 {
                     currentState = DroneState.Attack;
@@ -123,13 +113,6 @@ public class Drone : MonoBehaviour
                 break;
             case DroneState.Attack:
                 AttackPlayer();
-                break;
-            case DroneState.Hit:
-                // Drone gets hit by a bullet.
-                // Transition to Alert state. If already in Alert, remain in Alert state.
-                break;
-            case DroneState.Die:
-                // Drone loses all its life, gradually disappear (fade out).
                 break;
         }
     }
@@ -164,7 +147,7 @@ public class Drone : MonoBehaviour
 
     public void GetHit()
     {
-        if (currentState != DroneState.Die)
+        if (currentState == DroneState.Patrol || currentState == DroneState.Idle)
         {
             
             if (hitCoroutine != null)
@@ -172,26 +155,19 @@ public class Drone : MonoBehaviour
                 StopCoroutine(hitCoroutine);
             }
             
-            
-            DroneState previousState = currentState; // Store the previous state before transitioning to Hit state
             currentState = DroneState.Hit;
-
-            // Start a coroutine to change the state back to Alert after 4 seconds
-            StartCoroutine(ReturnToAlertStateAfterDelay(1f, previousState));
+            StartCoroutine(ReturnToAlertStateAfterDelay(1f));
         }
     }
     
     private Coroutine hitCoroutine;
 
-    private IEnumerator ReturnToAlertStateAfterDelay(float delay, DroneState previousState)
+    private IEnumerator ReturnToAlertStateAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // Check if the current state is still Hit before transitioning back to Alert
         if (currentState == DroneState.Hit)
         {
-            // Transition back to Alert state if the previous state was Idle or Patrol, else return to the previous state
-            currentState = (previousState == DroneState.Idle || previousState == DroneState.Patrol) ? DroneState.Alert : previousState;
+            currentState = DroneState.Alert;
         }
     }
     
@@ -200,21 +176,17 @@ public class Drone : MonoBehaviour
         Vector3 directionToPlayer = (character.transform.position - transform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-
-        // Check the distance to the player
+        
         float distanceToPlayer = Vector3.Distance(transform.position, character.transform.position);
-
-        // If the distance exceeds attackDistance, transition back to Chase state
+        
         if (distanceToPlayer > attackDistance)
         {
             currentState = DroneState.Chase;
         }
         else
         {
-            // Shoot the character once every two seconds if there are no obstacles
             if (Time.time - lastShootTime >= 2f)
             {
-                // Perform a raycast to check for obstacles between the drone and character
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, directionToPlayer, out hit, attackDistance))
                 {
@@ -230,8 +202,6 @@ public class Drone : MonoBehaviour
         }
     }
 
-
-
     private void DrawLifeBar()
     {
         lifeBar.gameObject.SetActive(true);
@@ -242,27 +212,4 @@ public class Drone : MonoBehaviour
         life.fillAmount = cL/mL;
 
     }
-    
-    
-
-    
-    private void OnDrawGizmos()
-    {
-        // Set the color for the detection angle visualization
-        Gizmos.color = Color.yellow;
-
-        // Get the forward direction of the drone
-        Vector3 forwardDirection = transform.forward;
-
-        // Calculate the starting point of the detection angle visualization
-        Vector3 startPoint = transform.position + Quaternion.Euler(0, -detectionAngle / 2, 0) * forwardDirection * detectionDistance;
-
-        // Draw the detection angle visualization using a cone or field of view shape
-        Gizmos.DrawRay(transform.position, startPoint - transform.position);
-        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, detectionAngle, 0) * forwardDirection * detectionDistance);
-        Gizmos.DrawLine(startPoint, transform.position + forwardDirection * detectionDistance);
-    }
-    
-    
-
 }

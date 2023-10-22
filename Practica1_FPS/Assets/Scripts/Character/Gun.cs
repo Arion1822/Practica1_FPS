@@ -5,18 +5,27 @@ using System.Collections.Generic;
 
 public class Gun : MonoBehaviour
 {
-    public int maxMagazineAmmo = 10; // Maximum ammo in a magazine
+    public int maxMagazineAmmo = 10;
     public int maxTotalAmmo = 50;
+<<<<<<< Updated upstream:Practica1_FPS/Assets/Scripts/Character/Gun.cs
     public int currentTotalAmmo; // Total ammo the player has
     public int currentMagazineAmmo; // Current ammo in the magazine
     public GameObject decalPrefab;
 
+=======
+    public int currentTotalAmmo;
+    public int currentMagazineAmmo;
+    public float maxDistance = 100f;
+>>>>>>> Stashed changes:Practica1_FPS/Assets/Scripts/Gun.cs
 
     public TMP_Text currentAmmoText;
     void Start()
     {
         currentMagazineAmmo = maxMagazineAmmo;
         currentTotalAmmo = maxTotalAmmo;
+
+        GameObject[] dd;
+        dd.Length;
     }
 
     void Update()
@@ -36,27 +45,11 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        // Define the maximum shooting distance
-        float maxDistance = 100f;
-
-        // Create a ray from the camera through the center of the screen
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
-        // Declare a RaycastHit variable to store information about the hit object
+        
         RaycastHit hit;
-
-        // Perform the raycast and check if it hits an object within the maxDistance
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-            /*// Check if the hit object has a Drone component
-            Drone drone = hit.collider.GetComponent<Drone>();
-            if (drone != null)
-            {
-                // Apply damage to the drone
-                drone.ReceiveDamage(damageAmount);
-            }*/
-
-            // Check if the hit object has a DartBoard component
             DartBoardPart dartBoardPart = hit.collider.GetComponent<DartBoardPart>();
             if (dartBoardPart != null)
             {
@@ -68,11 +61,18 @@ public class Gun : MonoBehaviour
             if (dronePart != null)
             {
                 dronePart.DamageDrone();
+                
+                Li
             }
+<<<<<<< Updated upstream:Practica1_FPS/Assets/Scripts/Character/Gun.cs
 
             else{
                 CreateDecal(hit.point, hit.normal);
             }
+=======
+            
+            //create a decal in hit 
+>>>>>>> Stashed changes:Practica1_FPS/Assets/Scripts/Gun.cs
         }
         
         currentMagazineAmmo--;

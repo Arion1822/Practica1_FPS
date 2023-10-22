@@ -52,24 +52,17 @@ public class GameManager : MonoBehaviour
         maxScore = Mathf.Max(maxScore, score);
         UpdateScoreText();
     }
-
-    // Method to retrieve the current score
-    public int GetScore()
-    {
-        return score;
-    }
     
     void UpdateScoreText()
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score; // Update the TMP text with the current score
+            scoreText.text = "Score: " + score;
         }
     }
 
     public void StartGalleryGame()
     {
-        // Set ShootingGallery and its children to active
         if (dartboards != null && !playingGalleryGame)
         {
             playingGalleryGame = true;
@@ -107,19 +100,15 @@ public class GameManager : MonoBehaviour
     {
         int timeRemaining = countdownDuration;
 
-        // Loop for the countdown duration
         while (timeRemaining > 0)
         {
-            // Update the countdown text (if you have a TMP component for countdown)
             if (countdownText != null)
             {
                 countdownText.text = "Time: " + timeRemaining + "s";
             }
 
-            // Wait for one second
             yield return new WaitForSeconds(1f);
 
-            // Decrease the remaining time
             timeRemaining--;
         }
 
@@ -135,7 +124,6 @@ public class GameManager : MonoBehaviour
         
     }
     
-    // OnDestroy is called when the object is being destroyed
     private void OnDestroy()
     {
         if (this == instance)
